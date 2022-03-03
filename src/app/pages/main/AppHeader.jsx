@@ -1,21 +1,34 @@
 import styled from "styled-components"
-import logo from '../../images/g2k-logo.png'
-import { FaBeer } from 'react-icons/fa';
-import { SiCodechef } from "react-icons/si";
+import { RiSearchEyeLine } from "react-icons/ri"
 
 const StyledAppHeader = styled.div`
-  .g2k-logo{
-    width: 150px;
-    clip-path: circle(50% at 50% 50%);
+  /* background-color: #00643ecc; */
+  width: 100%;
+  height: fit-content;
+
+  .logo {
+    font-size: 14px;
+    /* color: #ddf8e3; */
+    color: #4e776d;
+    font-family: arial;
+    display: inline-block;
+    padding-left: 16px;
   }
-`
+
+  .searchIcon {
+    /* color: #ccf57a; */
+    color: #87b134;
+  }
+`;
 
 const AppHeader = () => {
   return (
     <StyledAppHeader>
-      {/* <img className="g2k-logo" src={logo}></img> */}
-      <h1>G<SiCodechef />od<span style={{color: 'red'}}>2</span>Know</h1>
-      
+      <div className="logo">
+        <h1>
+          G<RiSearchEyeLine className="searchIcon"/>od<span style={{color: '#87b134'}}>2</span>Know
+        </h1>
+      </div>
     </StyledAppHeader>
   )
 }
