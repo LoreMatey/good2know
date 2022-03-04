@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const StyledAppFooter = styled.div`
+  width: 100%;
   background-color: #4e776d;
   color: white;
   text-align: center;

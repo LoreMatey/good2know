@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import AppHeader from "./AppHeader"
 import AppFooter from "./AppFooter"
 import homeImage from "../../images/g2k-home-image.png"
@@ -6,11 +7,9 @@ import styled from "styled-components"
 const StyledMain = styled.div`
   width: 1024px;
   margin: 0 auto;
-  label {
-    color: blue;
-  }
+  background-color: white;
 
-  >p {
+  > p {
     margin-bottom: 30px;
     font-size: 20px;
     font-family: Tahoma, sans-serif;
@@ -22,7 +21,7 @@ const StyledMain = styled.div`
   button {
     display: block;
     width: 100px;
-    margin: 40px auto;
+    margin: 30px auto;
     padding: 10px;
     font-size: 15px;
     font-family: Tahoma, sans-serif;
@@ -35,22 +34,39 @@ const StyledMain = styled.div`
   button:hover {
     color: #87b134;
     border: 1px solid #87b134;
+    cursor: pointer;
   }
 
   .home-image {
-    height: 500px;
+    height: 464px;
     display: block;
     margin: 0 auto;
   }
+
+  /* background-colorpara el header #ece5e1 */
 `
 
 const Main = () => {
+
+  const [user, setUser] = useState({});
+
+  const changeUser = () => {
+    setUser({
+      name: 'Lore Matey',
+      email: 'lorenamatey@hotmail.es'
+    })
+  }
+
+  const logoClicked = () => console.log("Se hizo clic en el logo")
+
   return (
     <StyledMain>
-      <AppHeader />
+      <AppHeader color="transparent" user={user} onLogoClick={logoClicked} showLogo={true}/>
         <p>Welcome to Good 2 Know, <br />the leading world site for restarurant reviews</p>
         <img className="home-image" src={homeImage} alt="Critic in a restaurant"/>
-        <button>Login</button>
+        <button onClick={changeUser}>
+          Login
+        </button>
       <AppFooter />
     </StyledMain>
   )
